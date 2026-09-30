@@ -1,0 +1,844 @@
+/* =========================================================
+   VEEYOM ADMIN DASHBOARD
+   Dashboard.jsx -> Style.css
+   ========================================================= */
+
+.dashboard-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 28px;
+  box-sizing: border-box;
+  background: #f5f8fc;
+  color: #0f172a;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 26px;
+}
+
+.page-eyebrow {
+  display: inline-block;
+  margin-bottom: 7px;
+  color: #2563eb;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #0f172a;
+}
+
+.page-header p {
+  margin: 7px 0 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.dashboard-date {
+  min-width: 190px;
+  padding: 13px 17px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(15, 23, 42, 0.04);
+}
+
+.dashboard-date span {
+  display: block;
+  margin-bottom: 4px;
+  color: #16a34a;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.dashboard-date small {
+  color: #64748b;
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   STAT CARDS
+   ========================================================= */
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+
+/*
+   These styles work with your Common.jsx
+   .stat-card
+*/
+
+.stat-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 120px;
+  padding: 20px;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(15, 23, 42, 0.04);
+  transition: 0.25s ease;
+}
+
+.stat-card::after {
+  content: "";
+  position: absolute;
+  right: -25px;
+  top: -25px;
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  background: #eff6ff;
+  opacity: 0.7;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+.stat-icon {
+  position: relative;
+  z-index: 1;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 13px;
+  background: #eff6ff;
+  font-size: 23px;
+}
+
+.stat-info {
+  position: relative;
+  z-index: 1;
+}
+
+.stat-info p {
+  margin: 0 0 5px;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.stat-info h2 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 27px;
+  font-weight: 800;
+}
+
+.stat-info span {
+  display: block;
+  margin-top: 4px;
+  color: #94a3b8;
+  font-size: 11px;
+}
+
+
+/* Different stat tones */
+
+.stat-card.red .stat-icon {
+  background: #fef2f2;
+}
+
+.stat-card.orange .stat-icon {
+  background: #fff7ed;
+}
+
+.stat-card.green .stat-icon {
+  background: #f0fdf4;
+}
+
+.stat-card.blue .stat-icon {
+  background: #eff6ff;
+}
+
+
+/* =========================================================
+   DASHBOARD GRID
+   ========================================================= */
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(360px, 1fr);
+  gap: 22px;
+  margin-bottom: 22px;
+}
+
+
+/* =========================================================
+   GENERAL CARD
+   ========================================================= */
+
+.dashboard-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 22px;
+  box-sizing: border-box;
+  box-shadow: 0 5px 20px rgba(15, 23, 42, 0.04);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.card-eyebrow {
+  display: block;
+  margin-bottom: 5px;
+  color: #2563eb;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.card-header h2 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 19px;
+  font-weight: 750;
+}
+
+.card-header p {
+  margin: 5px 0 0;
+  color: #64748b;
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.primary-btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 9px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.primary-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.text-btn {
+  padding: 7px 3px;
+  border: none;
+  background: transparent;
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.text-btn:hover {
+  color: #1d4ed8;
+}
+
+
+/* =========================================================
+   INDIA MAP
+   ========================================================= */
+
+.map-card {
+  min-width: 0;
+}
+
+.dashboard-map {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #eaf2f8;
+  border: 1px solid #dbe5ef;
+}
+
+
+/* If WindMap has an iframe/map */
+
+.dashboard-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+
+/* Make the map component fill container */
+
+.dashboard-map > * {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* =========================================================
+   ALERTS
+   ========================================================= */
+
+.alerts-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-alert {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-height: 75px;
+  padding: 13px 0;
+  border-bottom: 1px solid #edf1f5;
+}
+
+.dashboard-alert:last-child {
+  border-bottom: none;
+}
+
+.alert-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 11px;
+  background: #f8fafc;
+  font-size: 19px;
+}
+
+.dashboard-alert.critical .alert-icon {
+  background: #fef2f2;
+}
+
+.dashboard-alert.high .alert-icon {
+  background: #fff7ed;
+}
+
+.dashboard-alert.moderate .alert-icon {
+  background: #fffbeb;
+}
+
+.alert-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.alert-content h3 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.alert-content p {
+  margin: 3px 0;
+  color: #475569;
+  font-size: 12px;
+}
+
+.alert-content small {
+  color: #94a3b8;
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   STATUS BADGES
+   ========================================================= */
+
+.status {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 65px;
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.status-critical {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.status-high {
+  background: #ffedd5;
+  color: #ea580c;
+}
+
+.status-moderate {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.status-low {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.status-available {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.status-operational {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+
+/* =========================================================
+   DAM MONITORING
+   ========================================================= */
+
+.dam-monitoring {
+  width: 100%;
+}
+
+.dam-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 68px;
+  padding: 11px 0;
+  border-bottom: 1px solid #edf1f5;
+}
+
+.dam-row:last-child {
+  border-bottom: none;
+}
+
+.dam-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.dam-avatar {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 11px;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.dam-info h3 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 13px;
+}
+
+.dam-info p {
+  margin: 3px 0 0;
+  color: #64748b;
+  font-size: 11px;
+}
+
+.dam-level {
+  min-width: 55px;
+  text-align: right;
+}
+
+.dam-level strong {
+  display: block;
+  color: #0f172a;
+  font-size: 15px;
+}
+
+.dam-level span {
+  color: #94a3b8;
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   AI PREDICTION
+   ========================================================= */
+
+.ai-card {
+  background: linear-gradient(
+    145deg,
+    #ffffff 0%,
+    #f8fbff 100%
+  );
+}
+
+.ai-badge {
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: #eef2ff;
+  color: #4f46e5;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.prediction-main {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.risk-score {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.score-circle {
+  width: 88px;
+  height: 88px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 7px solid #f97316;
+  border-radius: 50%;
+  background: #fff7ed;
+}
+
+.score-circle strong {
+  color: #0f172a;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.score-circle span {
+  margin-top: 2px;
+  color: #64748b;
+  font-size: 10px;
+}
+
+.risk-score h3 {
+  margin: 0;
+  color: #dc2626;
+  font-size: 17px;
+}
+
+.risk-score p {
+  margin: 4px 0 0;
+  color: #64748b;
+  font-size: 11px;
+}
+
+.prediction-event {
+  padding: 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 11px;
+  background: #f8fafc;
+}
+
+.prediction-event span {
+  color: #64748b;
+  font-size: 10px;
+}
+
+.prediction-event h3 {
+  margin: 6px 0 4px;
+  color: #0f172a;
+  font-size: 14px;
+}
+
+.prediction-event p {
+  margin: 0;
+  color: #64748b;
+  font-size: 11px;
+}
+
+.prediction-time {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.prediction-time div {
+  padding: 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+.prediction-time span {
+  display: block;
+  color: #64748b;
+  font-size: 9px;
+}
+
+.prediction-time strong {
+  display: block;
+  margin-top: 5px;
+  color: #0f172a;
+  font-size: 13px;
+}
+
+.prediction-btn {
+  width: 100%;
+  margin-top: 18px;
+  padding: 11px;
+  border: none;
+  border-radius: 9px;
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.prediction-btn:hover {
+  background: #1e293b;
+}
+
+
+/* =========================================================
+   SYSTEM STATUS
+   ========================================================= */
+
+.system-card {
+  margin-bottom: 30px;
+}
+
+.system-live {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 11px;
+  border-radius: 20px;
+  background: #f0fdf4;
+  color: #15803d;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.system-live span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 4px #dcfce7;
+}
+
+
+/*
+   Common.jsx -> SystemStatus
+*/
+
+.system-status-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.system-status-item {
+  padding: 15px;
+  border: 1px solid #e2e8f0;
+  border-radius: 11px;
+  background: #f8fafc;
+}
+
+.system-status-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 7px;
+}
+
+.system-status-name span {
+  font-size: 12px;
+}
+
+.system-status-name strong {
+  color: #0f172a;
+  font-size: 11px;
+}
+
+.system-status-item small {
+  color: #16a34a;
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+.dashboard-page::-webkit-scrollbar {
+  width: 7px;
+}
+
+.dashboard-page::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.dashboard-page::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-map {
+    height: 420px;
+  }
+
+  .system-status-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .dashboard-page {
+    padding: 16px;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .page-header h1 {
+    font-size: 26px;
+  }
+
+  .dashboard-date {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-card {
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .card-header {
+    flex-direction: column;
+  }
+
+  .dashboard-map {
+    height: 350px;
+  }
+
+  .dam-row {
+    flex-wrap: wrap;
+  }
+
+  .dam-info {
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .dam-level {
+    margin-left: 54px;
+    text-align: left;
+  }
+
+  .system-status-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .system-live {
+    align-self: flex-start;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 430px) {
+
+  .dashboard-page {
+    padding: 12px;
+  }
+
+  .dashboard-map {
+    height: 300px;
+  }
+
+  .prediction-time {
+    grid-template-columns: 1fr;
+  }
+
+  .score-circle {
+    width: 75px;
+    height: 75px;
+  }
+
+  .status {
+    min-width: 55px;
+    font-size: 9px;
+  }
+
+}

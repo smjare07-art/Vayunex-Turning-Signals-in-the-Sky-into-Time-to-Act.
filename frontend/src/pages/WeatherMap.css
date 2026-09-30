@@ -1,0 +1,793 @@
+/* =========================================================
+   VEEYOM WEATHER MAP
+   Premium Blue / White Dashboard
+========================================================= */
+
+.weather-map-wrapper {
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 28px;
+
+  box-sizing: border-box;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f8fbff 0%,
+      #eef5ff 50%,
+      #f8fbff 100%
+    );
+
+  font-family:
+    "Inter",
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  color: #0f172a;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.weather-map-header {
+  width: 100%;
+  max-width: 1500px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 20px;
+}
+
+
+.weather-map-header h2 {
+  margin: 0;
+
+  font-size: 28px;
+
+  font-weight: 800;
+
+  letter-spacing: -0.5px;
+
+  color: #0a192f;
+}
+
+
+.weather-map-header p {
+  margin: 7px 0 0;
+
+  font-size: 14px;
+
+  color: #64748b;
+}
+
+
+/* =========================================================
+   LOCATION STATUS
+========================================================= */
+
+.location-status {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 11px 17px;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  border: 1px solid #dbe5f2;
+
+  border-radius: 12px;
+
+  color: #334155;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  box-shadow:
+    0 5px 20px rgba(15, 23, 42, 0.08);
+
+  max-width: 350px;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+.location-dot {
+  width: 9px;
+  height: 9px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+
+  box-shadow:
+    0 0 0 4px rgba(34, 197, 94, 0.14);
+
+  animation: locationPulse 2s infinite;
+}
+
+
+@keyframes locationPulse {
+
+  0% {
+    box-shadow:
+      0 0 0 0 rgba(34, 197, 94, 0.4);
+  }
+
+  70% {
+    box-shadow:
+      0 0 0 8px rgba(34, 197, 94, 0);
+  }
+
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(34, 197, 94, 0);
+  }
+
+}
+
+
+/* =========================================================
+   WARNING
+========================================================= */
+
+.location-warning {
+  width: 100%;
+
+  max-width: 1500px;
+
+  margin: 0 auto 15px;
+
+  padding: 12px 16px;
+
+  box-sizing: border-box;
+
+  border-radius: 10px;
+
+  background: #fff7ed;
+
+  border: 1px solid #fed7aa;
+
+  color: #9a3412;
+
+  font-size: 13px;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   MAP CONTAINER
+========================================================= */
+
+.windy-map-container {
+  position: relative;
+
+  width: 100%;
+
+  max-width: 1500px;
+
+  height: 650px;
+
+  margin: 0 auto;
+
+  overflow: hidden;
+
+  background: #dbeafe;
+
+  border-radius: 20px;
+
+  border: 1px solid #d7e2f0;
+
+  box-shadow:
+    0 18px 45px rgba(15, 23, 42, 0.16);
+}
+
+
+/* =========================================================
+   WINDY IFRAME
+========================================================= */
+
+.windy-iframe {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  border: none;
+
+  outline: none;
+}
+
+
+/* =========================================================
+   SEARCH BOX
+========================================================= */
+
+.map-search-box {
+  position: absolute;
+
+  top: 18px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  z-index: 1000;
+
+  width: 540px;
+
+  max-width: calc(100% - 40px);
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 5px;
+
+  background:
+    rgba(255, 255, 255, 0.97);
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+
+  border-radius: 13px;
+
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.25);
+
+  backdrop-filter: blur(12px);
+}
+
+
+/* =========================================================
+   SEARCH ICON
+========================================================= */
+
+.search-icon {
+  width: 40px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  font-size: 18px;
+}
+
+
+/* =========================================================
+   SEARCH INPUT
+========================================================= */
+
+.map-search-box input {
+  flex: 1;
+
+  min-width: 0;
+
+  height: 43px;
+
+  padding: 0 10px;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  color: #0f172a;
+
+  font-size: 14px;
+
+  font-weight: 500;
+}
+
+
+.map-search-box input::placeholder {
+  color: #94a3b8;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   SEARCH BUTTON
+========================================================= */
+
+.map-search-box button {
+  height: 43px;
+
+  padding: 0 20px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #1d4ed8
+    );
+
+  color: #ffffff;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.map-search-box button:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 6px 15px rgba(37, 99, 235, 0.35);
+}
+
+
+.map-search-box button:active {
+  transform: translateY(0);
+}
+
+
+.map-search-box button:disabled {
+  opacity: 0.7;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+/* =========================================================
+   SELECTED LOCATION CARD
+========================================================= */
+
+.selected-location {
+  position: absolute;
+
+  left: 18px;
+
+  bottom: 18px;
+
+  z-index: 1000;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  padding: 12px 16px;
+
+  min-width: 230px;
+
+  max-width: 360px;
+
+  background:
+    rgba(10, 25, 47, 0.94);
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.12);
+
+  border-radius: 12px;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.3);
+
+  backdrop-filter: blur(12px);
+}
+
+
+.selected-location > span {
+  font-size: 20px;
+
+  flex-shrink: 0;
+}
+
+
+.selected-location strong {
+  display: block;
+
+  margin-bottom: 3px;
+
+  font-size: 11px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.7px;
+
+  color: #93c5fd;
+}
+
+
+.selected-location small {
+  display: block;
+
+  max-width: 290px;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  font-size: 13px;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.map-loading {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 2000;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #edf5ff,
+      #ffffff
+    );
+}
+
+
+.map-loading p {
+  margin-top: 16px;
+
+  color: #475569;
+
+  font-size: 14px;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+.loader {
+  width: 42px;
+  height: 42px;
+
+  border: 4px solid #dbeafe;
+
+  border-top-color: #2563eb;
+
+  border-radius: 50%;
+
+  animation:
+    spin 0.8s linear infinite;
+}
+
+
+@keyframes spin {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+
+/* =========================================================
+   PREDICTION PANEL
+========================================================= */
+
+.prediction-panel {
+  width: 100%;
+
+  max-width: 1500px;
+
+  margin: 20px auto 0;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 16px;
+}
+
+
+/* =========================================================
+   PREDICTION CARD
+========================================================= */
+
+.prediction-panel > div {
+  position: relative;
+
+  padding: 20px;
+
+  background:
+    rgba(255, 255, 255, 0.95);
+
+  border: 1px solid #dfe7f1;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 6px 20px rgba(15, 23, 42, 0.07);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.prediction-panel > div::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 4px;
+  height: 100%;
+
+  background: #2563eb;
+}
+
+
+.prediction-panel > div:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 25px rgba(15, 23, 42, 0.1);
+}
+
+
+/* =========================================================
+   PREDICTION TEXT
+========================================================= */
+
+.prediction-panel span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  color: #64748b;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.5px;
+}
+
+
+.prediction-panel strong {
+  display: block;
+
+  font-size: 21px;
+
+  font-weight: 800;
+
+  color: #0a192f;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   DESKTOP LARGE SCREEN
+========================================================= */
+
+@media (min-width: 1600px) {
+
+  .weather-map-wrapper {
+    padding: 35px 45px;
+  }
+
+  .windy-map-container {
+    height: 700px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .weather-map-wrapper {
+    padding: 20px;
+  }
+
+
+  .weather-map-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+
+  .location-status {
+    max-width: 100%;
+  }
+
+
+  .windy-map-container {
+    height: 580px;
+  }
+
+
+  .prediction-panel {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .weather-map-wrapper {
+    padding: 12px;
+  }
+
+
+  .weather-map-header {
+    margin-bottom: 14px;
+  }
+
+
+  .weather-map-header h2 {
+    font-size: 21px;
+  }
+
+
+  .weather-map-header p {
+    font-size: 12px;
+
+    line-height: 1.5;
+  }
+
+
+  .location-status {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    font-size: 12px;
+
+    white-space: normal;
+  }
+
+
+  .windy-map-container {
+    height: 520px;
+
+    border-radius: 13px;
+  }
+
+
+  .map-search-box {
+    top: 10px;
+
+    width: calc(100% - 20px);
+
+    max-width: none;
+  }
+
+
+  .search-icon {
+    width: 34px;
+
+    font-size: 16px;
+  }
+
+
+  .map-search-box input {
+    height: 40px;
+
+    font-size: 12px;
+  }
+
+
+  .map-search-box button {
+    height: 40px;
+
+    padding: 0 12px;
+
+    font-size: 11px;
+  }
+
+
+  .selected-location {
+    left: 10px;
+
+    right: 10px;
+
+    bottom: 10px;
+
+    min-width: 0;
+
+    max-width: none;
+  }
+
+
+  .selected-location small {
+    max-width: 240px;
+  }
+
+
+  .prediction-panel {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+  }
+
+
+  .prediction-panel > div {
+    padding: 16px;
+  }
+
+}

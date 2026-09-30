@@ -1,0 +1,510 @@
+/* =========================================================
+   VEEYOM NAVBAR
+========================================================= */
+
+.veeyom-navbar {
+  width: calc(100% - 48px);
+  height: 68px;
+
+  margin: 16px 24px 0;
+
+  padding: 0 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-radius: 24px;
+
+  background: var(--navbar-bg);
+
+  border: 1px solid var(--navbar-border);
+
+  box-shadow: var(--navbar-shadow);
+
+  color: var(--text-primary);
+
+  position: relative;
+  z-index: 1000;
+
+  transition:
+    background 0.3s ease,
+    border 0.3s ease,
+    box-shadow 0.3s ease,
+    color 0.3s ease;
+}
+
+
+/* =========================================================
+   LEFT
+========================================================= */
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  min-width: 300px;
+}
+
+
+/* =========================================================
+   ICON BUTTON
+========================================================= */
+
+.navbar-icon-button {
+  width: 38px;
+  height: 38px;
+
+  border: none;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--navbar-button-bg);
+  color: var(--text-primary);
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.navbar-icon-button:hover {
+  background: var(--navbar-button-hover);
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   NOTIFICATION
+========================================================= */
+
+.notification-button {
+  position: relative;
+}
+
+.notification-dot {
+  position: absolute;
+
+  width: 6px;
+  height: 6px;
+
+  background: #ff4d4d;
+
+  border-radius: 50%;
+
+  top: 8px;
+  right: 8px;
+
+  border: 1px solid var(--navbar-bg);
+}
+
+
+/* =========================================================
+   LOCATION
+========================================================= */
+
+.navbar-location {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  margin-left: 3px;
+
+  color: var(--text-primary);
+
+  font-size: 13px;
+  font-weight: 500;
+
+  white-space: nowrap;
+}
+
+.navbar-location svg {
+  color: var(--accent-color);
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.navbar-search {
+  width: 345px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 0 15px;
+
+  border-radius: 22px;
+
+  background: var(--search-bg);
+
+  border: 1px solid var(--search-border);
+
+  color: var(--text-secondary);
+
+  transition: all 0.25s ease;
+}
+
+.navbar-search:focus-within {
+  border-color: var(--accent-color);
+
+  box-shadow:
+    0 0 0 3px var(--accent-soft);
+}
+
+.navbar-search input {
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: var(--text-primary);
+
+  font-size: 12px;
+
+  font-family: inherit;
+}
+
+.navbar-search input::placeholder {
+  color: var(--text-secondary);
+}
+
+
+/* =========================================================
+   RIGHT
+========================================================= */
+
+.navbar-right {
+  min-width: 300px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 10px;
+}
+
+
+/* =========================================================
+   THEME TOGGLE
+========================================================= */
+
+.theme-toggle {
+  width: 70px;
+  height: 38px;
+
+  padding: 4px;
+
+  border: none;
+
+  border-radius: 22px;
+
+  background: var(--theme-toggle-bg);
+
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+
+  position: relative;
+
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.03);
+}
+
+.theme-icon {
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+
+  transition: all 0.3s ease;
+}
+
+.sun-icon {
+  left: 4px;
+
+  color: #ffb703;
+}
+
+.moon-icon {
+  right: 4px;
+
+  color: #ffffff;
+}
+
+
+/* DARK MODE */
+
+.theme-toggle.dark-active .moon-icon {
+  background: #e6f4ff;
+  color: #14213d;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.theme-toggle.dark-active .sun-icon {
+  opacity: 0.45;
+}
+
+
+/* LIGHT MODE */
+
+.theme-toggle.light-active .sun-icon {
+  background: #ffffff;
+  color: #ff9f1c;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.theme-toggle.light-active .moon-icon {
+  opacity: 0.45;
+}
+
+
+/* =========================================================
+   LANGUAGE
+========================================================= */
+
+.language-wrapper {
+  position: relative;
+}
+
+.language-button {
+  height: 36px;
+
+  padding: 0 9px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 4px;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--text-primary);
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.language-chevron {
+  transition: transform 0.2s ease;
+}
+
+.language-chevron.open {
+  transform: rotate(180deg);
+}
+
+
+/* =========================================================
+   LANGUAGE MENU
+========================================================= */
+
+.language-menu {
+  position: absolute;
+
+  top: 44px;
+  right: 0;
+
+  min-width: 125px;
+
+  padding: 6px;
+
+  border-radius: 12px;
+
+  background: var(--dropdown-bg);
+
+  border: 1px solid var(--dropdown-border);
+
+  box-shadow: var(--dropdown-shadow);
+
+  animation: dropdownIn 0.18s ease;
+}
+
+.language-menu button {
+  width: 100%;
+
+  padding: 9px 11px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: var(--text-primary);
+
+  text-align: left;
+
+  font-size: 12px;
+
+  cursor: pointer;
+}
+
+.language-menu button:hover {
+  background: var(--navbar-button-hover);
+}
+
+@keyframes dropdownIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   USER
+========================================================= */
+
+.navbar-user {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding-left: 2px;
+}
+
+.user-avatar {
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    135deg,
+    #f4d35e,
+    #ee964b
+  );
+
+  color: #171717;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.25);
+}
+
+.user-name {
+  max-width: 100px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  color: var(--text-primary);
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .veeyom-navbar {
+    width: calc(100% - 24px);
+
+    margin-left: 12px;
+    margin-right: 12px;
+
+    height: 62px;
+
+    border-radius: 20px;
+  }
+
+  .navbar-left {
+    min-width: auto;
+  }
+
+  .navbar-location {
+    display: none;
+  }
+
+  .navbar-search {
+    width: 220px;
+  }
+
+  .navbar-right {
+    min-width: auto;
+  }
+
+  .user-name {
+    display: none;
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .veeyom-navbar {
+    padding: 0 9px;
+  }
+
+  .navbar-search {
+    width: 150px;
+  }
+
+  .language-wrapper {
+    display: none;
+  }
+
+  .navbar-icon-button {
+    width: 34px;
+    height: 34px;
+  }
+
+  .theme-toggle {
+    width: 62px;
+    height: 34px;
+  }
+
+  .theme-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+}

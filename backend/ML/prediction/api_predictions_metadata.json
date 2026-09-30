@@ -1,0 +1,32 @@
+{
+  "project": "ClimateVerse AI",
+  "dataset": "API Prediction Grid",
+  "generated_at": "2026-09-13T03:02:34.568593+00:00",
+  "prediction_time": "2026-09-05T05:00:00",
+  "source_rows": 5133240,
+  "api_rows": 980,
+  "grid_points": 980,
+  "latitude_range": [
+    15.5,
+    22.25
+  ],
+  "longitude_range": [
+    72.5,
+    81.0
+  ],
+  "positive_predictions": {
+    "thunderstorm": 0,
+    "cloudburst": 0,
+    "flashflood": 0
+  },
+  "max_probability": {
+    "thunderstorm": 0.0005919038085266948,
+    "cloudburst": 8.411404337493877e-07,
+    "flashflood": 1.7440676458591042e-07
+  },
+  "schema_version": "1.0",
+  "probability_format": "0-1",
+  "percentage_format": "0-100",
+  "prediction_type": "latest_available_prediction_grid",
+  "note": "This dataset contains the latest available ML prediction grid and is not a direct real-time observation."
+}

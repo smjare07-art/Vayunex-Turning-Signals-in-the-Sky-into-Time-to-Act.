@@ -1,0 +1,30 @@
+{
+    "model": "ClimateVerse AI Multi-Hazard XGBoost",
+    "hazards": [
+        "Thunderstorm 2H",
+        "Cloudburst 2H",
+        "Flash Flood 2H"
+    ],
+    "total_predictions": 5133240,
+    "positive_predictions": {
+        "thunderstorm": 22362,
+        "cloudburst": 826,
+        "flashflood": 1755
+    },
+    "thresholds": {
+        "thunderstorm": 0.5,
+        "cloudburst": 0.97,
+        "flashflood": 0.98
+    },
+    "highest_risk_point": {
+        "time": "2026-07-05 03:00:00",
+        "latitude": 19.0,
+        "longitude": 72.75,
+        "overall_probability": 99.99984741210938,
+        "hazard": "CLOUDBURST"
+    },
+    "output_files": {
+        "csv": "C:\\ClimateVerse-AI\\prediction\\final_multi_hazard_predictions.csv",
+        "parquet": "C:\\ClimateVerse-AI\\prediction\\final_multi_hazard_predictions.parquet"
+    }
+}
